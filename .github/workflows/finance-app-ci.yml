@@ -32,9 +32,11 @@ jobs:
         run: npm run lint
 
       - name: Type check
-        run: npm run type-check
+        run: npm run typecheck
 
       - name: Test
+        env:
+          TZ: UTC
         run: npm run test
 
       - name: Build
