@@ -59,8 +59,16 @@ This copies:
 
 ### Part C — Initialize Git and push to GitHub
 
-> **Troubleshooting: Git identity or authentication**
-> If `git commit` fails because your identity is not configured, set `user.name` and `user.email` locally or ask your facilitator. If `git push` fails because of authentication, sign in to GitHub in your terminal environment or ask your facilitator for the preferred authentication method.
+> **Prerequisite: Personal Access Token with `workflow` scope**
+> Pushing a `.github/workflows/` file requires a GitHub Personal Access Token (PAT) with both `repo` and `workflow` scopes. A token without `workflow` scope will be rejected with: *"refusing to allow a Personal Access Token to create or update workflow … without `workflow` scope"*.
+>
+> To create the token:
+> 1. Go to **GitHub → Settings → Developer settings → Personal access tokens → Generate new token**
+> 2. Select scopes: **`repo`** and **`workflow`**
+> 3. Click **Generate token** and copy the value — you will use it in the push command below
+
+> **Troubleshooting: Git identity**
+> If `git commit` fails because your identity is not configured, set `user.name` and `user.email` locally or ask your facilitator.
 
 ```bash
 # Change into the directory that contains the application
@@ -71,8 +79,8 @@ git init
 git add .
 git commit -m "Initial commit: finance dashboard from Part 1"
 
-# Connect to GitHub (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/finance-app.git
+# Connect to GitHub — replace YOUR_TOKEN and YOUR_USERNAME
+git remote add origin https://YOUR_TOKEN@github.com/YOUR_USERNAME/finance-app.git
 git branch -M main
 git push -u origin main
 ```
@@ -261,7 +269,7 @@ In the **same chat** as Step F, type the following command directly into Bob's c
 
 Bob will display a workflow dialog. Click **"Start workflow"**. In the form that appears, leave the pre-filled values for **Repository** (`finance-app`) and **Base Branch** (`main`) as they are, then click **"Generate PR Description"** to create the pull request.
 
-> **⚠️ Type `/create-pr` exactly**
+> **⚠️ Type `/create-pull-request` exactly**
 > Autocomplete may suggest `/create-pull-request` — do not use it. That variant cannot run in an existing chat and will show an error. Use `/create-pr`.
 
 ### What Bob does
