@@ -127,7 +127,7 @@ Bob will implement the dashboard components. Once done, you can start the app lo
 ```bash
 cd finance-app
 npm install
-npm start
+npm run dev
 ```
 
 ### Check before continuing
