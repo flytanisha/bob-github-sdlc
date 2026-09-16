@@ -64,7 +64,7 @@ Bob will output a structured build plan. Read through it — it sets the context
 
 ---
 
-## Step B — Create the Application Skeleton
+## Step B — Create the Application Skeleton - 15 mins
 
 ### Why this step?
 A repeatable lab needs a clear project structure. This step generates the app shell, component layout, service layer, and test scaffolding that all later steps build on.
@@ -147,7 +147,7 @@ AI-generated code needs engineering discipline. This step adds unit tests, integ
 
 ### Prompt
 ```text
-Add appropriate validation for the finance dashboard project. Include unit tests for the data formatting and normalization utilities, and integration tests for at least one dashboard view rendered with mocked API data. Use MSW to mock the finance API responses in tests. Provide a single command that runs lint, type-check, tests, and build together, and summarize what a successful run looks like.
+Add appropriate validation for the finance dashboard project. Include unit tests for the data formatting and normalization utilities, and integration tests for at least one dashboard view rendered with mocked API data. Use MSW to mock the finance API responses in tests. Provide a single `validate` command in `package.json` that runs lint, typecheck, tests, and build in sequence — name the typecheck script exactly `typecheck` (no hyphen). Any locale-formatted timestamps (e.g. toLocaleTimeString) must include `timeZone: 'UTC'` so that snapshot tests are deterministic across local and CI environments. Generate all snapshots by running tests with `TZ=UTC` so the committed snapshot matches what CI will produce. Summarize what a successful run looks like.
 ```
 
 ### What Bob does
